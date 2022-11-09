@@ -1,0 +1,173 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: white;
+    height: 100%;
+}
+
+.title {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 2fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    animation: loading 1s infinite linear;
+    visibility: visible;
+}
+
+.theme {
+    display: flex;
+    align-self: center;
+    justify-self: flex-end;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.theme-mode {
+    font-weight: bold;
+    height: 30px;
+    width: 30px;
+}
+
+.theme-button {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    margin: 0px 7px 0px 10px;
+}
+
+.theme-button input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #cccccc;
+    transition: 0.3s;
+    border-radius: 100px;
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 3px;
+    bottom: 3px;
+    background-color: rgb(255, 255, 255);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: black;
+
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+    background-color: white;
+}
+
+img {
+    height: inherit;
+    width: inherit;
+}
+
+.game-title {
+    font-weight: bold;
+    border-bottom: 3px solid black;
+    text-align: center;
+    padding: 25px 0px;
+    font-size: 30px;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    width: 25%;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    border: 3px solid rgb(174, 172, 172);
+    margin: 8px 0px;
+    font-weight: bold;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.letter-not-found {
+    background-color: #7d7d7d;
+    color: white;
+}
+
+.right-position {
+    background-color: #205700;
+    color: white;
+}
+
+.wrong-position {
+    background-color: #cc9e1f;
+    color: white;
+}
+
+.invalid {
+    animation: invalid 0.5s linear;
+}
+
+@keyframes loading {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes invalid {
+    25% {
+        border-color: rgb(203, 11, 11);
+    }
+
+    100% {
+        border-color: rgb(174, 172, 172);
+    }
+}
+
+.dark-theme {
+    filter: invert(1);
+}
+
+.dark-theme-font {
+    color: white;
+}
